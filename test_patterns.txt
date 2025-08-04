@@ -1,0 +1,33 @@
+# Recreating the test file after code execution environment reset
+test_file_content = """
+# GitHub Actions
+uses: actions/setup-node@v2
+
+# Dockerfile
+FROM ghcr.io/testorg/testimage:latest
+
+# Shell Scripts
+curl https://github.com/fakeorg1/tool.sh | bash
+wget https://github.com/fakeorg2/install.sh
+
+# Terraform
+source = "git::https://github.com/fakeorg3/terraform-module.git"
+
+# pip install from GitHub
+pip install git+https://github.com/fakeorg4/cool-lib.git
+
+# npm install from GitHub
+npm install github:fakeorg5/package
+
+# Go import
+import "github.com/fakeorg6/mypkg"
+
+# Python dependency_links
+dependency_links = ["https://github.com/fakeorg7/mypkg/tarball/master#egg=mypkg"]
+"""
+
+test_file_path = "/mnt/data/repojacking_test_patterns.txt"
+with open(test_file_path, "w") as f:
+    f.write(test_file_content)
+
+test_file_path
